@@ -1398,12 +1398,12 @@ function renderProducts(filteredProducts){
     // Media: video > image > placeholder
     let mediaHTML = '';
     if(p.video){
-      mediaHTML = `
-        <div class="product-img-wrap">
-          <video src="${p.video}" class="product-video" muted loop playsinline></video>
-          <div class="product-video-play-btn" onclick="this.previousElementSibling.play(); this.style.display='none'"><i class="fas fa-play"></i></div>
-          ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
-        </div>`;
+     mediaHTML = `
+  <div class="product-img-wrap">
+    <video src="${p.video}" class="product-video" autoplay muted loop playsinline></video>
+    <div class="product-video-play-btn" onclick="this.previousElementSibling.play(); this.style.display='none'"><i class="fas fa-play"></i></div>
+    ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
+  </div>`;
     } else {
       const hasImg = p.image && p.image.trim();
       const imgInner = hasImg

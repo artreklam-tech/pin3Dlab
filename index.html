@@ -1356,7 +1356,6 @@ document.querySelectorAll('a,button,.cat-card,.product-card').forEach(el=>{
 
 // ════════════════════════════════════════════════
 //  PRODUCTS LOADING FROM products.json
-//  (Updated by Netlify CMS when you add/edit products in /admin)
 // ════════════════════════════════════════════════
 let products = [];
 
@@ -1368,7 +1367,7 @@ async function loadProducts() {
       products = data.products || [];
     }
   } catch (e) {
-    console.warn('products.json not found or invalid, using empty array');
+    console.warn('products.json not found');
     products = [];
   }
   renderProducts();
@@ -1382,7 +1381,7 @@ function openWA(msg){
 }
 
 // ════════════════════════════════════════════════
-//  RENDER PRODUCTS
+//  RENDER PRODUCTS (with colors, video, IQD)
 // ════════════════════════════════════════════════
 function renderProducts(filteredProducts){
   const grid = document.getElementById('productsGrid');
@@ -1395,26 +1394,55 @@ function renderProducts(filteredProducts){
   productsToRender.forEach((p,i)=>{
     const card=document.createElement('div');
     card.className='product-card reveal';
-    const hasImg=p.image&&p.image.trim();
-    const imgInner=hasImg
-      ? `<div class="product-img" style="background-image:url('${p.image}')"></div>` 
-      : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><i class="fas fa-cube product-placeholder-icon"></i><span style="font-size:.73rem;color:rgba(0,212,255,.4);">No image</span></div>`;
+    
+    // Media: video > image > placeholder
+    let mediaHTML = '';
+    if(p.video){
+      mediaHTML = `
+        <div class="product-img-wrap">
+          <video src="${p.video}" class="product-video" muted loop playsinline></video>
+          <div class="product-video-play-btn" onclick="this.previousElementSibling.play(); this.style.display='none'"><i class="fas fa-play"></i></div>
+          ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
+        </div>`;
+    } else {
+      const hasImg = p.image && p.image.trim();
+      const imgInner = hasImg
+        ? `<div class="product-img" style="background-image:url('${p.image}')"></div>`
+        : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><i class="fas fa-cube product-placeholder-icon"></i><span style="font-size:.73rem;color:rgba(0,212,255,.4);">No image</span></div>`;
+      mediaHTML = `
+        <div class="product-img-wrap">
+          ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
+          ${imgInner}
+        </div>`;
+    }
+    
+    // Colors
+    let colorsHTML = '';
+    if(p.colors && p.colors.length > 0){
+      colorsHTML = '<div class="product-colors">';
+      p.colors.forEach((color, idx) => {
+        colorsHTML += `<div class="color-option ${idx===0?'selected':''}" style="background-color:${color}" data-color="${color}"></div>`;
+      });
+      colorsHTML += '</div>';
+    }
+    
+    // Price in IQD
+    const priceIQD = 'IQD ' + Number(p.price || 0).toLocaleString();
     
     card.innerHTML=`
-      <div class="product-img-wrap">
-        ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
-        ${imgInner}
-      </div>
+      ${mediaHTML}
       <div class="product-info">
-        <div class="product-title">${p.title || p.name}</div>
-        <div class="product-desc">${p.description || p.desc || ''}</div>
+        <div class="product-title">${p.title}</div>
+        <div class="product-desc">${p.description || ''}</div>
+        ${colorsHTML}
         <div class="product-footer">
-          <div class="product-price">${p.price ? '$'+parseFloat(p.price).toFixed(2) : ''}</div>
-          <button class="buy-btn" data-msg="Hi, I want to order ${p.title || p.name}" data-product="${p.title || p.name}"><i class="fab fa-whatsapp"></i> Buy Now</button>
+          <div class="product-price">${priceIQD}</div>
+          <button class="buy-btn" data-msg="Hi, I want to order ${p.title}" data-product="${p.title}"><i class="fab fa-whatsapp"></i> Buy Now</button>
         </div>
       </div>`;
     grid.appendChild(card);
-    // tilt
+    
+    // Tilt effect
     card.addEventListener('mousemove',e=>{
       const r=card.getBoundingClientRect();
       const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
@@ -1422,10 +1450,24 @@ function renderProducts(filteredProducts){
       card.style.transformStyle='preserve-3d';
     });
     card.addEventListener('mouseleave',()=>{ card.style.transform=''; card.style.transition='all .45s cubic-bezier(.34,1.1,.64,1)'; });
+    
+    // Color selection
+    card.querySelectorAll('.color-option').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        card.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        const buyBtn = card.querySelector('.buy-btn');
+        buyBtn.dataset.msg = `Hi, I want to order ${p.title} in color: ${opt.dataset.color}`;
+      });
+    });
   });
+  
+  // Buy button listeners
   document.querySelectorAll('.buy-btn').forEach(btn=>{
     btn.addEventListener('click',e=>{e.stopPropagation();openWA(btn.dataset.msg);});
   });
+  
   initReveal();
 }
 
@@ -1448,8 +1490,8 @@ function filterProducts() {
   const searchTerm = productSearch.value.toLowerCase();
   const selectedCategory = categoryFilter.value;
   const filtered = products.filter(p => {
-    const title = (p.title || p.name || '').toLowerCase();
-    const desc = (p.description || p.desc || '').toLowerCase();
+    const title = (p.title || '').toLowerCase();
+    const desc = (p.description || '').toLowerCase();
     const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
     const matchesCategory = !selectedCategory || p.category === selectedCategory;
     return matchesSearch && matchesCategory;
@@ -1467,7 +1509,6 @@ const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileNav = document.getElementById('mobileNav');
 const mobileNavOverlay = document.getElementById('mobileNavOverlay');
 
-// Mobile menu toggle
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenuBtn.classList.toggle('active');
   mobileNav.classList.toggle('active');
@@ -1482,7 +1523,6 @@ mobileNavOverlay.addEventListener('click', () => {
   document.body.style.overflow = '';
 });
 
-// Close mobile nav on link click
 mobileNav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenuBtn.classList.remove('active');
@@ -1514,9 +1554,10 @@ function addToRecentlyViewed(product) {
   let recentlyViewed = JSON.parse(localStorage.getItem(RECENTLY_VIEWED_KEY)) || [];
   recentlyViewed = recentlyViewed.filter(item => item.title !== product.title);
   recentlyViewed.unshift({
-    title: product.title || product.name,
+    title: product.title,
     price: product.price,
-    image: product.image || product.imageUrl
+    image: product.image,
+    video: product.video
   });
   recentlyViewed = recentlyViewed.slice(0, MAX_RECENTLY_VIEWED);
   localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(recentlyViewed));
@@ -1534,21 +1575,26 @@ function renderRecentlyViewed() {
   }
   
   recentlyViewedSection.style.display = 'block';
-  recentlyViewedGrid.innerHTML = recentlyViewed.map(item => `
-    <div class="recently-viewed-item" onclick="openProductModal({title:'${item.title}',price:'${item.price}',image:'${item.image}'})">
-      <div class="recently-viewed-image">
-        ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i class="fas fa-cube" style="font-size:2rem;color:var(--muted);"></i>'}
-      </div>
-      <div class="recently-viewed-name">${item.title}</div>
-      <div class="recently-viewed-price">$${parseFloat(item.price).toFixed(2)}</div>
-    </div>
-  `).join('');
+  recentlyViewedGrid.innerHTML = recentlyViewed.map(item => {
+    const thumb = item.video 
+      ? `<video src="${item.video}" style="width:100%;height:100%;object-fit:cover;" muted></video>`
+      : item.image 
+        ? `<img src="${item.image}" alt="${item.title}">`
+        : '<i class="fas fa-cube" style="font-size:2rem;color:var(--muted);"></i>';
+    const priceText = 'IQD ' + Number(item.price || 0).toLocaleString();
+    return `
+      <div class="recently-viewed-item" onclick="openProductModal({title:'${item.title}',price:${item.price},image:'${item.image || ''}',video:'${item.video || ''}',description:''})">
+        <div class="recently-viewed-image">${thumb}</div>
+        <div class="recently-viewed-name">${item.title}</div>
+        <div class="recently-viewed-price">${priceText}</div>
+      </div>`;
+  }).join('');
 }
 
 renderRecentlyViewed();
 
 // ════════════════════════════════════════════════
-//  PRODUCT DETAIL MODAL
+//  PRODUCT DETAIL MODAL (updated with video & IQD)
 // ════════════════════════════════════════════════
 const productModal = document.getElementById('productModal');
 const productModalClose = document.getElementById('productModalClose');
@@ -1562,25 +1608,28 @@ const modalGalleryThumbs = document.getElementById('modalGalleryThumbs');
 const modalBuyBtn = document.getElementById('modalBuyBtn');
 
 function openProductModal(product) {
-  modalTitle.textContent = product.title || product.name;
-  modalPrice.textContent = '$' + parseFloat(product.price || 0).toFixed(2);
-  modalDesc.textContent = product.description || product.desc || '';
+  modalTitle.textContent = product.title;
+  modalPrice.textContent = 'IQD ' + Number(product.price || 0).toLocaleString();
+  modalDesc.textContent = product.description || '';
   modalMaterial.textContent = product.material || 'PLA';
   modalCategory.textContent = product.category || 'Custom';
   
-  document.getElementById('breadcrumbCurrent').textContent = product.title || product.name;
+  document.getElementById('breadcrumbCurrent').textContent = product.title;
   document.getElementById('breadcrumbs').style.display = 'block';
   
-  if (product.image || product.imageUrl) {
-    const imgSrc = product.image || product.imageUrl;
-    modalImage.innerHTML = `<img src="${imgSrc}" alt="${product.title}">`;
+  // Media: video > image
+  if(product.video){
+    modalImage.innerHTML = `<video src="${product.video}" controls autoplay style="width:100%;height:100%;object-fit:cover;"></video>`;
+    modalGalleryThumbs.innerHTML = '';
+  } else if(product.image){
+    modalImage.innerHTML = `<img src="${product.image}" alt="${product.title}">`;
     modalGalleryThumbs.innerHTML = '';
   } else {
     modalImage.innerHTML = '<i class="fas fa-cube" style="font-size:3rem;color:var(--muted);"></i>';
     modalGalleryThumbs.innerHTML = '';
   }
   
-  modalBuyBtn.dataset.msg = `Hi, I want to order ${product.title || product.name}`;
+  modalBuyBtn.dataset.msg = `Hi, I want to order ${product.title}`;
   productModal.classList.add('active');
   document.body.style.overflow = 'hidden';
   addToRecentlyViewed(product);

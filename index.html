@@ -1619,8 +1619,7 @@ function openProductModal(product) {
   
   // Media: video > image
   if(product.video){
-    modalImage.innerHTML = `<video src="${product.video}" controls autoplay style="width:100%;height:100%;object-fit:cover;"></video>`;
-    modalGalleryThumbs.innerHTML = '';
+   modalImage.innerHTML = `<video src="${product.video}" controls autoplay muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`;
   } else if(product.image){
     modalImage.innerHTML = `<img src="${product.image}" alt="${product.title}">`;
     modalGalleryThumbs.innerHTML = '';

@@ -8,14 +8,19 @@ public_folder: "/images"
 collections:
   - name: "products"
     label: "Products"
-    folder: "/"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Price (number only, e.g. 29.99)", name: "price", widget: "number", value_type: "float"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Badge", name: "badge", widget: "string", required: false, hint: "e.g. New, Best Seller, Sale"}
-      - {label: "Category", name: "category", widget: "select", options: ["Gym Gear", "Home Decor", "Tech Gadgets", "Custom Orders", "Engineering Parts", "Prototypes"]}
-      - {label: "Material", name: "material", widget: "string", required: false, default: "PLA"}
+    files:
+      - name: "products"
+        label: "Products"
+        file: "products.json"
+        fields:
+          - name: "products"
+            label: "Products"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Price (number only)", name: "price", widget: "number", value_type: "float"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Badge", name: "badge", widget: "string", required: false}
+              - {label: "Category", name: "category", widget: "select", options: ["Gym Gear", "Home Decor", "Tech Gadgets", "Custom Orders", "Engineering Parts", "Prototypes"]}
+              - {label: "Material", name: "material", widget: "string", required: false, default: "PLA"}

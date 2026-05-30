@@ -12,6 +12,21 @@
       "image": "",
       "description": "Luxurious Lamb made In Kurdistan.",
       "category": "Home Decor"
+    },
+    {
+      "material": "PLA",
+      "title": "PIN3D LAB – Growth Form Lamp",
+      "price": 13000,
+      "description": "PIN3D LAB – Growth Form Lamp\n\nInspired by nature's growth patterns, the Growth Form Lamp features flowing, organic curves generated through a growth-based algorithm. Precision 3D printed to create a modern statement piece that brings warmth, innovation, and natural elegance to any space. 💡✨",
+      "video": "/images/aqmdxae7fbpwukx8t9jzqo8j7xmvy6hgqy2a0ocmn8i48bhorysfjcy_qlg0hweyt6f9yidx5c4ysjwjkvuevnivkomhxpa-om5gpjc.mp4",
+      "badge": "New",
+      "category": "Home Decor",
+      "colors": [
+        "Red",
+        "White",
+        "Blue",
+        "Black"
+      ]
     }
   ]
 }

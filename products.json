@@ -1,32 +1,17 @@
 {
   "products": [
     {
-      "badge": "New",
-      "material": "PLA & PETG",
-      "price": 12000,
+      "badge": "NEW",
+      "material": "PETG",
+      "price": 8000,
       "colors": [
-        "White"
+        "#000000 #FFFFFF #D8C3A5 #6ECFF6 #0B3D91 #E5E4E2"
       ],
-      "title": "Home Made Lamp",
-      "video": "/images/vidssave.com-perfect-3d-printed-lamps-before-printing_-why-i-preview-every-design-in-vision-pro-3dprinting-720p.mp4",
-      "image": "",
-      "description": "Luxurious Lamb made In Kurdistan.",
+      "title": "Ceiling Pendant Twisted Soft Round Lampshade",
+      "video": "/images/screen-recording-2026-06-26-022943.mp4",
+      "image": "/images/screenshot-2026-06-26-023116.png",
+      "description": "Modern 3D-Printed Lamp\nElevate your space with this premium 3D-printed lamp, crafted for a perfect balance of style, durability, and functionality. Its lightweight design makes it ideal for desks, bedside tables, or shelves, creating a warm and inviting atmosphere.\n\nWeight: 100 g",
       "category": "Home Decor"
-    },
-    {
-      "material": "PLA",
-      "title": "PIN3D LAB – Growth Form Lamp",
-      "price": 13000,
-      "description": "PIN3D LAB – Growth Form Lamp\n\nInspired by nature's growth patterns, the Growth Form Lamp features flowing, organic curves generated through a growth-based algorithm. Precision 3D printed to create a modern statement piece that brings warmth, innovation, and natural elegance to any space. 💡✨",
-      "video": "/images/aqmdxae7fbpwukx8t9jzqo8j7xmvy6hgqy2a0ocmn8i48bhorysfjcy_qlg0hweyt6f9yidx5c4ysjwjkvuevnivkomhxpa-om5gpjc.mp4",
-      "badge": "New",
-      "category": "Home Decor",
-      "colors": [
-        "Red",
-        "White",
-        "Blue",
-        "Black"
-      ]
     }
   ]
 }

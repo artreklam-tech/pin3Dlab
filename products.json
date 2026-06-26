@@ -9,7 +9,19 @@
       "badge": "New",
       "category": "Home Decor",
       "colors": [
-        "Red Blue Green Yellow Orange Purple Pink Black White Gray Brown Cyan Magenta Lime Navy Gold"
+        "Crystal Clear Transparent Blue White Black Latte Marble Navy Blue"
+      ]
+    },
+    {
+      "material": "PETG",
+      "title": "FlowForm Pendant",
+      "price": 15000,
+      "description": "Inspired by flowing petals, the Twisted Bloom Pendant Lampshade brings a soft, modern elegance to any space. Precision 3D printed for a unique sculptural look that diffuses light beautifully. Lightweight (220 g), durable, and perfect for homes, cafés, or offices.",
+      "image": "/images/screenshot-2026-06-26-144734.png",
+      "badge": "New",
+      "category": "Home Decor",
+      "colors": [
+        "Crystal Clear Transparent Blue White Black Latte Marble Navy Blue"
       ]
     }
   ]

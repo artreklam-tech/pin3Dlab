@@ -3,13 +3,13 @@
     {
       "material": "PETG",
       "title": "Ceiling Pendant Twisted Soft Round Lampshade",
-      "price": 8000 IQD,
-      "description": "Modern 3D-Printed Lamp\nElevate your space with this premium 3D-printed lamp, crafted for a perfect balance of style, durability, and functionality. Its lightweight design makes it ideal for desks, bedside tables, or shelves, creating a warm and inviting atmosphere.\n\nWeight: 100 g",
+      "price": 8000,
+      "description": "A modern 3D-printed pendant lampshade with a sleek twisted design that creates a warm, inviting glow. Lightweight (100 g), durable, and perfect for any contemporary space.",
       "image": "/images/screenshot-2026-06-26-023116.png",
-      "badge": "NEW",
+      "badge": "New",
       "category": "Home Decor",
       "colors": [
-        "#000000 #FFFFFF #D8C3A5 #6ECFF6 #0B3D91 #E5E4E2"
+        "Red Blue Green Yellow Orange Purple Pink Black White Gray Brown Cyan Magenta Lime Navy Gold"
       ]
     }
   ]

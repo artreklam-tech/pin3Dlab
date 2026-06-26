@@ -23,6 +23,17 @@
       "colors": [
         "Crystal Clear Transparent Blue White Black Latte Marble Navy Blue"
       ]
+    },
+    {
+      "material": "PETG",
+      "title": "HexaLight Table Lamp",
+      "price": 10000,
+      "description": "A modern 3D-printed table lamp featuring a refined geometric texture that casts a warm, cozy glow. Lightweight, durable, and designed to elevate bedrooms, living spaces, and workspaces.",
+      "image": "/images/screenshot-2026-06-26-150015.png",
+      "category": "Home Decor",
+      "colors": [
+        "Crystal Clear Transparent Blue White Black Latte Marble Navy Blue"
+      ]
     }
   ]
 }

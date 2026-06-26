@@ -67,6 +67,17 @@
       "colors": [
         "#FFFFFF #111111 #C8A27A #E6E6E6 #0A1F44"
       ]
+    },
+    {
+      "material": "PETG",
+      "title": "Beehive Pendant – Vase Mode Edition",
+      "price": 12000,
+      "description": "A lightweight 3D printed pendant lampshade inspired by natural beehive structures. Designed in vase mode for a smooth, continuous form, it delivers a soft ambient glow while maintaining a minimal and organic aesthetic. Weight: 125g, making it efficient, elegant, and ideal for modern interior lighting.",
+      "image": "/images/screenshot-2026-06-26-152650.png",
+      "category": "Home Decor",
+      "colors": [
+        "#FFFFFF #111111 #C8A27A #E6E6E6 #0A1F44"
+      ]
     }
   ]
 }

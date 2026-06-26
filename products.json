@@ -34,6 +34,17 @@
       "colors": [
         "Crystal Clear Transparent Blue White Black Latte Marble Navy Blue"
       ]
+    },
+    {
+      "material": "PETG",
+      "description": "3D printed sculptural lampshade designed for IKEA HEMMA pendant light. Features smooth twisting rib geometry that diffuses light softly while creating a modern, elegant shadow pattern.",
+      "price": 12000,
+      "image": "/images/screenshot-2026-06-26-150457.png",
+      "title": "Hemman Lampshade",
+      "category": "Home Decor",
+      "colors": [
+        "Crystal Clear Transparent Blue White Black Latte Marble"
+      ]
     }
   ]
 }

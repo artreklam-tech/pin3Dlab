@@ -78,6 +78,17 @@
       "colors": [
         "#FFFFFF #111111 #C8A27A #E6E6E6 #0A1F44"
       ]
+    },
+    {
+      "material": "PETG",
+      "title": "The GeoHive Pendant",
+      "price": 15000,
+      "description": "Home Studio Crafted that Art meets tech with precise 3D printing.\nAmbient Glow and Geometric pinholes cast a stunning, warm light pattern.",
+      "image": "/images/screenshot-2026-06-26-153130.png",
+      "category": "Home Decor",
+      "colors": [
+        "#FFFFFF #111111 #C8A27A #E6E6E6 #0A1F44"
+      ]
     }
   ]
 }

@@ -93,10 +93,6 @@ p{font-size:1rem;line-height:1.7;color:var(--muted);}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:3px;}
 
-/* CURSOR */
-.cursor{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:screen;transition:background .3s;box-shadow:0 0 15px var(--accent);}
-.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(0,212,255,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:opacity .3s;}
-
 /* THREEJS CANVAS (hidden - using video) */
 #threejs-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;display:none;}
 /* dark overlay so content stays readable */
@@ -117,6 +113,7 @@ p{font-size:1rem;line-height:1.7;color:var(--muted);}
 
 .container{max-width:1360px;margin:0 auto;padding:0 44px;}
 section{padding:110px 0;}
+section#faq, section.cta-section{padding:80px 0;}
 
 /* NAVBAR */
 .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .4s ease;}
@@ -168,16 +165,6 @@ section{padding:110px 0;}
 .search-filter-bar select{padding:12px 20px;background:rgba(10,15,30,0.8);border:1px solid var(--border);border-radius:100px;color:var(--text);font-size:.95rem;cursor:pointer;transition:border-color .3s;}
 .search-filter-bar select:focus{outline:none;border-color:var(--accent);}
 
-/* TESTIMONIALS */
-.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:40px;}
-.testimonial-card{background:rgba(10,15,30,0.6);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;}
-.testimonial-card:hover{border-color:var(--accent);transform:translateY(-4px);}
-.testimonial-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
-.testimonial-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-purple));display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:white;}
-.testimonial-info h4{font-size:1.1rem;font-weight:600;margin-bottom:4px;}
-.testimonial-info span{font-size:.88rem;color:var(--muted);}
-.testimonial-rating{color:#FFD700;margin-bottom:16px;font-size:.95rem;}
-.testimonial-text{color:var(--muted);line-height:1.7;font-size:.95rem;font-style:italic;}
 
 /* MATERIAL SELECTION */
 .product-materials{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
@@ -327,11 +314,6 @@ section{padding:110px 0;}
 .hero-sub{font-size:1.1rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;text-shadow:0 0 15px rgba(0,0,0,0.8);}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-/* PRINT STATUS BAR in hero */
-.print-status{display:flex;align-items:center;gap:12px;margin-top:32px;justify-content:center;font-size:.95rem;color:var(--muted);font-weight:500;}
-.print-bar-wrap{flex:1;max-width:280px;height:5px;background:rgba(0,212,255,.15);border-radius:3px;overflow:hidden;}
-.print-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px;animation:printFill 8s linear infinite;box-shadow:0 0 10px var(--accent);}
-@keyframes printFill{0%{width:0%}100%{width:100%}}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:500;cursor:pointer;text-decoration:none;border:none;transition:all .3s cubic-bezier(.34,1.56,.64,1);}
@@ -362,16 +344,30 @@ section{padding:110px 0;}
 .cat-card p{font-size:.75rem;color:var(--muted);}
 
 /* PRODUCTS */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-.product-card{background:transparent;border:1px solid rgba(0,212,255,0.3);border-radius:26px;overflow:hidden;transition:all .45s cubic-bezier(.34,1.1,.64,1);cursor:pointer;position:relative;backdrop-filter:none;}
-.product-card:hover{transform:translateY(-14px);border-color:var(--accent);box-shadow:0 32px 60px -20px rgba(0,212,255,.45);}
+.products-grid-wrap{position:relative;}
+.products-grid{display:grid;grid-template-columns:repeat(3,minmax(320px,1fr));grid-auto-flow:column;gap:26px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+.products-grid::-webkit-scrollbar{height:8px;}
+.products-grid::-webkit-scrollbar-track{background:transparent;}
+.products-grid::-webkit-scrollbar-thumb{background:rgba(0,212,255,.25);border-radius:999px;}
+.products-grid > .product-card{scroll-snap-align:start;min-width:320px;}
+@media(max-width:800px){.products-grid{grid-auto-flow:row;overflow-x:visible;grid-template-columns:repeat(1,minmax(280px,1fr));gap:22px;}
+.products-grid > .product-card{min-width:auto;width:100%;}}
+.product-card{background:transparent;border:1px solid rgba(0,212,255,0.3);border-radius:26px;overflow:hidden;transition:box-shadow .3s ease, transform .3s ease, border-color .3s ease;cursor:pointer;position:relative;backdrop-filter:none;}
+.product-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 20px 42px -18px rgba(0,212,255,.28);}
+.product-card:focus-visible{outline:2px solid rgba(0,212,255,.75);outline-offset:4px;}
 .product-img-wrap{height:250px;overflow:hidden;position:relative;background:linear-gradient(160deg,#0F0C20,#06050F);}
 .product-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(9,8,24,.85) 0%,transparent 50%);}
-.product-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.25,.46,.45,.94);display:flex;align-items:center;justify-content:center;}
-.product-card:hover .product-img{transform:scale(1.08);}
-.product-placeholder-icon{font-size:2.8rem;color:rgba(0,212,255,.3);transition:all .4s;}
-.product-card:hover .product-placeholder-icon{color:rgba(0,212,255,.6);transform:scale(1.1) rotate(8deg);}
+.product-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .35s ease;display:flex;align-items:center;justify-content:center;}
+.product-card:hover .product-img{transform:scale(1.03);}
+.product-placeholder-icon{font-size:2.8rem;color:rgba(0,212,255,.3);transition:all .3s ease;}
+.product-card:hover .product-placeholder-icon{color:rgba(0,212,255,.55);transform:scale(1.05) rotate(8deg);}
 .product-badge{position:absolute;top:14px;left:14px;background:rgba(0,212,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(0,212,255,.3);border-radius:100px;padding:4px 12px;font-size:.7rem;font-weight:600;color:var(--accent);letter-spacing:.05em;text-transform:uppercase;z-index:2;}
+.cat-card.active{border-color:var(--accent);box-shadow:0 18px 36px rgba(0,212,255,.18);transform:translateY(-4px) scale(1.01);}
+.product-scroll-controls{position:absolute;top:50%;right:12px;transform:translateY(-50%);display:flex;gap:10px;z-index:10;}
+.scroll-btn{width:42px;height:42px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease, transform .2s ease;}
+.scroll-btn:hover{background:rgba(0,0,0,.65);transform:scale(1.05);}
+.scroll-btn:focus-visible{outline:2px solid rgba(0,212,255,.75);outline-offset:3px;}
+@media(max-width:1100px){.product-scroll-controls{display:none;}}
 
 /* 3D Model Viewer */
 .product-3d-container{width:100%;height:100%;position:relative;}
@@ -483,8 +479,8 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
 .reveal{opacity:0;transform:translateY(38px);}
 
 /* RESPONSIVE */
-@media(max-width:1100px){.categories-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:800px){.container{padding:0 22px}section{padding:80px 0}.nav-links{display:none}.categories-grid{grid-template-columns:repeat(2,1fr)}.products-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.steps-grid::before{display:none}.about-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:14px;text-align:center}.hero-content{padding:36px 24px}.cta-box{padding:50px 24px}}
+@media(max-width:1100px){.categories-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(2,minmax(320px,1fr))}.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.container{padding:0 22px}section{padding:80px 0}.nav-links{display:none}.categories-grid{grid-template-columns:repeat(2,1fr)}.products-grid{grid-template-columns:repeat(1,minmax(280px,1fr))}.steps-grid{grid-template-columns:1fr}.steps-grid::before{display:none}.about-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:14px;text-align:center}.hero-content{padding:36px 24px}.cta-box{padding:50px 24px}}
 @media(max-width:500px){.categories-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr}.field-row{grid-template-columns:1fr}}
 </style>
 </head>
@@ -533,8 +529,6 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
   </div>
 </div>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <div class="toast" id="toast"></div>
 
 <!-- VIDEO BACKGROUND -->
@@ -614,12 +608,6 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
       <a href="#products" class="btn btn-glow"><i class="fas fa-cube"></i> Explore Products</a>
       <button class="btn btn-ghost" id="heroWa"><i class="fab fa-whatsapp"></i> WhatsApp Order</button>
     </div>
-    <div class="print-status">
-      <i class="fas fa-circle-notch fa-spin" style="color:var(--accent);font-size:.7rem;"></i>
-      <span style="font-size:.95rem;font-weight:500;">Printing in progress</span>
-      <div class="print-bar-wrap"><div class="print-bar-fill"></div></div>
-      <span id="printPct" style="font-size:1rem;color:var(--accent);font-weight:700;text-shadow:0 0 15px rgba(0,0,0,0.9);">0%</span>
-    </div>
   </div>
 </section>
 
@@ -632,7 +620,7 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
       <div class="cat-card" data-cat="Gym Gear"><div class="cat-icon"><i class="fas fa-dumbbell"></i></div><h3>Gym Gear</h3><p>Ergonomic performance</p></div>
       <div class="cat-card" data-cat="Home Decor"><div class="cat-icon"><i class="fas fa-couch"></i></div><h3>Home Decor</h3><p>Minimalist &amp; bold</p></div>
       <div class="cat-card" data-cat="Tech Gadgets"><div class="cat-icon"><i class="fas fa-microchip"></i></div><h3>Tech Gadgets</h3><p>Sleek &amp; functional</p></div>
-      <div class="cat-card" data-cat="Custom Orders"><div class="cat-icon"><i class="fas fa-pen-ruler"></i></div><h3>Custom Made</h3><p>Your unique design</p></div>
+      <div class="cat-card" data-cat="Custom Made"><div class="cat-icon"><i class="fas fa-pen-ruler"></i></div><h3>Custom Made</h3><p>Your unique design</p></div>
       <div class="cat-card" data-cat="Engineering Parts"><div class="cat-icon"><i class="fas fa-cogs"></i></div><h3>Engineering</h3><p>Functional parts</p></div>
       <div class="cat-card" data-cat="Prototypes"><div class="cat-icon"><i class="fas fa-flask"></i></div><h3>Prototypes</h3><p>Rapid iteration</p></div>
     </div>
@@ -651,16 +639,22 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
         <option value="Gym Gear">Gym Gear</option>
         <option value="Home Decor">Home Decor</option>
         <option value="Tech Gadgets">Tech Gadgets</option>
-        <option value="Custom Orders">Custom Made</option>
+        <option value="Custom Made">Custom Made</option>
         <option value="Engineering Parts">Engineering</option>
         <option value="Prototypes">Prototypes</option>
       </select>
     </div>
-    <div class="products-grid" id="productsGrid">
-      <div class="products-empty">
-        <i class="fas fa-cube"></i>
-        <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px;">Loading products...</p>
-        <p>Products appear here once added through the admin panel.</p>
+    <div class="products-grid-wrap">
+      <div class="products-grid" id="productsGrid">
+        <div class="products-empty">
+          <i class="fas fa-cube"></i>
+          <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px;">Loading products...</p>
+          <p>Products appear here once added through the admin panel.</p>
+        </div>
+      </div>
+      <div class="product-scroll-controls" aria-hidden="true">
+        <button class="scroll-btn scroll-prev" type="button" aria-label="Scroll products left"><i class="fas fa-chevron-left"></i></button>
+        <button class="scroll-btn scroll-next" type="button" aria-label="Scroll products right"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
   </div>
@@ -708,7 +702,7 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
       <p>We work with PLA, PETG, ABS, TPU, Carbon Fiber composites — matching material to purpose with zero compromise.</p>
       <div class="about-stat">
         <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Orders</div></div>
-        <div class="stat-item"><div class="stat-num">±0.05mm</div><div class="stat-label">Precision</div></div>
+        <div class="stat-item"><div class="stat-num">±0.02mm</div><div class="stat-label">Precision</div></div>
         <div class="stat-item"><div class="stat-num">48hr</div><div class="stat-label">Turnaround</div></div>
       </div>
     </div>
@@ -721,53 +715,10 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
     <span class="section-label">Advantages</span>
     <h2 class="section-title">The PIN3D <span>Edge</span></h2>
     <div class="why-grid">
-      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-crosshairs"></i></div><h3>High Precision</h3><p>±0.05 mm accuracy. Layer heights down to 0.1 mm.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-crosshairs"></i></div><h3>High Precision</h3><p>±0.02 mm accuracy. Layer heights down to 0.1 mm.</p></div>
       <div class="why-card reveal"><div class="why-icon"><i class="fas fa-bolt"></i></div><h3>Fast Delivery</h3><p>Most orders shipped within 48 hours.</p></div>
       <div class="why-card reveal"><div class="why-icon"><i class="fas fa-paint-brush"></i></div><h3>Full Customization</h3><p>Any color, finish, geometry — we print what you imagine.</p></div>
       <div class="why-card reveal"><div class="why-icon"><i class="fas fa-gem"></i></div><h3>Premium Materials</h3><p>PLA, PETG, ABS, TPU, Carbon Fiber.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="glass-section">
-  <div class="container">
-    <span class="section-label">Reviews</span>
-    <h2 class="section-title">What Our <span>Customers Say</span></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar">AK</div>
-          <div class="testimonial-info">
-            <h4>Ahmed Karim</h4>
-            <span>Gym Equipment</span>
-          </div>
-        </div>
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"The quality is incredible. My custom gym handles fit perfectly and the finish is professional. Will definitely order again!"</p>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar">SM</div>
-          <div class="testimonial-info">
-            <h4>Sarah Mohammed</h4>
-            <span>Home Decor</span>
-          </div>
-        </div>
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"Fast delivery and amazing attention to detail. The vase I ordered looks exactly like the design I sent. Highly recommend!"</p>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar">YH</div>
-          <div class="testimonial-info">
-            <h4>Yusuf Hassan</h4>
-            <span>Engineering Parts</span>
-          </div>
-        </div>
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"Precision engineering at its best. The parts I needed were printed with exact specifications. Great communication throughout the process."</p>
-      </div>
     </div>
   </div>
 </section>
@@ -792,7 +743,7 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
       </div>
       <div class="faq-item">
         <div class="faq-question">What is your precision tolerance? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-answer">We achieve ±0.05 mm accuracy with layer heights down to 0.1 mm. This precision level ensures your parts fit and function exactly as designed.</div>
+        <div class="faq-answer">We achieve ±0.02 mm accuracy with layer heights down to 0.1 mm. This precision level ensures your parts fit and function exactly as designed.</div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Do you ship internationally? <i class="fas fa-chevron-down"></i></div>
@@ -862,7 +813,7 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
 </section>
 
 <!-- CTA -->
-<section>
+<section class="cta-section">
   <div class="container">
     <div class="cta-box reveal">
       <h2>Start Your Custom Order Today</h2>
@@ -875,8 +826,33 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="glass-section">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">Reach the PIN3D Studio</h2>
+    <div class="contact-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:30px;">
+      <div class="contact-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px;">
+        <h3 style="margin-bottom:16px;color:#fff;">Phone & WhatsApp</h3>
+        <p style="color:var(--muted);margin-bottom:8px;">+964 750 344 1344</p>
+        <p style="color:var(--muted);font-size:.95rem;">Message us directly on WhatsApp for fast order support.</p>
+      </div>
+      <div class="contact-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px;">
+        <h3 style="margin-bottom:16px;color:#fff;">Email</h3>
+        <p style="color:var(--muted);margin-bottom:8px;">pin3d-lab@proton.me</p>
+        <p style="color:var(--muted);font-size:.95rem;">Send us your design brief or request a custom quote by email.</p>
+      </div>
+      <div class="contact-card" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px;">
+        <h3 style="margin-bottom:16px;color:#fff;">Studio Location</h3>
+        <p style="color:var(--muted);margin-bottom:8px;">Duhok, Iraq</p>
+        <p style="color:var(--muted);font-size:.95rem;">Visit us or request delivery details for your 3D printed order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer id="contact">
+<footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -1247,7 +1223,6 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
   let resetTimer = 0;
   const LAYER_SPEED = 0.015;
   let nozzleX = -1.3, nozzleZ = 0, nozzleDir = 1;
-  const printPct = document.getElementById('printPct');
 
   function animate(time) {
     requestAnimationFrame(animate);
@@ -1275,8 +1250,6 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
       filamentPoints.push(new THREE.Vector3(nozzleX, nozzleY - 0.7, nozzleZ));
       if (filamentPoints.length > 60) filamentPoints.shift();
       filamentGeo.setFromPoints(filamentPoints);
-      const pct = Math.round((currentLayer / TOTAL_LAYERS) * 100);
-      if (printPct) printPct.textContent = pct + '%';
     } else {
       resetTimer++;
       if (resetTimer > 180) {
@@ -1337,24 +1310,6 @@ footer{border-top:1px solid rgba(0,212,255,0.3);padding:56px 0 32px;background:t
 })();
 
 // ════════════════════════════════════════════════
-//  CURSOR
-// ════════════════════════════════════════════════
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function animC(){
-  if(cursor) cursor.style.transform=`translate(${mx-5}px,${my-5}px)`;
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-  if(ring) ring.style.transform=`translate(${rx-17}px,${ry-17}px)`;
-  requestAnimationFrame(animC);
-})();
-document.querySelectorAll('a,button,.cat-card,.product-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{if(cursor){cursor.style.transform+=' scale(2.5)';cursor.style.background='rgba(0,212,255,.5)';} if(ring) ring.style.opacity='0';});
-  el.addEventListener('mouseleave',()=>{if(cursor)cursor.style.background='var(--accent)';if(ring)ring.style.opacity='1';});
-});
-
-// ════════════════════════════════════════════════
 //  PRODUCTS LOADING FROM products.json
 // ════════════════════════════════════════════════
 let products = [];
@@ -1385,9 +1340,14 @@ function openWA(msg){
 // ════════════════════════════════════════════════
 function renderProducts(filteredProducts){
   const grid = document.getElementById('productsGrid');
-  const productsToRender = filteredProducts || products;
+  const productsToRender = filteredProducts !== undefined ? filteredProducts : products;
   if(!productsToRender.length){
-    grid.innerHTML=`<div class="products-empty"><i class="fas fa-cube"></i><p style="font-size:1.1rem;font-weight:600;margin-bottom:8px;">No products yet</p><p>Open the admin panel at <a href="/admin" style="color:var(--accent);">/admin</a> to add your first product.</p></div>`;
+    const isFilteredSearch = filteredProducts !== undefined;
+    const emptyTitle = isFilteredSearch ? 'No products match your search or category.' : 'No products yet';
+    const emptyText = isFilteredSearch
+      ? 'Try a different category or search term to see more items.'
+      : 'Open the admin panel at <a href="/admin" style="color:var(--accent);">/admin</a> to add your first product.';
+    grid.innerHTML = `<div class="products-empty"><i class="fas fa-cube"></i><p style="font-size:1.1rem;font-weight:600;margin-bottom:8px;">${emptyTitle}</p><p>${emptyText}</p></div>`;
     return;
   }
   grid.innerHTML='';
@@ -1442,15 +1402,6 @@ function renderProducts(filteredProducts){
       </div>`;
     grid.appendChild(card);
     
-    // Tilt effect
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
-      card.style.transform=`translateY(-14px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`;
-      card.style.transformStyle='preserve-3d';
-    });
-    card.addEventListener('mouseleave',()=>{ card.style.transform=''; card.style.transition='all .45s cubic-bezier(.34,1.1,.64,1)'; });
-    
     // Color selection
     card.querySelectorAll('.color-option').forEach(opt => {
       opt.addEventListener('click', (e) => {
@@ -1485,10 +1436,21 @@ function showToast(msg){
 // ════════════════════════════════════════════════
 const productSearch = document.getElementById('productSearch');
 const categoryFilter = document.getElementById('categoryFilter');
+const categoryCards = document.querySelectorAll('.cat-card');
+const productGrid = document.getElementById('productsGrid');
+const scrollPrevBtn = document.querySelector('.scroll-prev');
+const scrollNextBtn = document.querySelector('.scroll-next');
+
+function updateCategorySelection(selectedCategory) {
+  categoryCards.forEach(card => {
+    card.classList.toggle('active', selectedCategory && card.dataset.cat === selectedCategory);
+  });
+}
 
 function filterProducts() {
   const searchTerm = productSearch.value.toLowerCase();
   const selectedCategory = categoryFilter.value;
+  updateCategorySelection(selectedCategory);
   const filtered = products.filter(p => {
     const title = (p.title || '').toLowerCase();
     const desc = (p.description || '').toLowerCase();
@@ -1501,6 +1463,13 @@ function filterProducts() {
 
 productSearch.addEventListener('input', filterProducts);
 categoryFilter.addEventListener('change', filterProducts);
+
+scrollPrevBtn?.addEventListener('click', () => {
+  productGrid.scrollBy({ left: -360, behavior: 'smooth' });
+});
+scrollNextBtn?.addEventListener('click', () => {
+  productGrid.scrollBy({ left: 360, behavior: 'smooth' });
+});
 
 // ════════════════════════════════════════════════
 //  MOBILE MENU

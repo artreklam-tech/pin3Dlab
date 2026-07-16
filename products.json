@@ -6,7 +6,6 @@
       "price": 18000,
       "description": "A modern 3D-printed pendant lampshade with a sleek twisted design that creates a warm, inviting glow. Lightweight (100 g), durable, and perfect for any contemporary space.",
       "image": "/images/screenshot-2026-06-26-023116.png",
-      "badge": "New",
       "category": "Home Decor",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
     },
@@ -16,7 +15,6 @@
       "price": 15000,
       "description": "Inspired by flowing petals, the Twisted Bloom Pendant Lampshade brings a soft, modern elegance to any space. Precision 3D printed for a unique sculptural look that diffuses light beautifully. Lightweight (220 g), durable, and perfect for homes, cafés, or offices.",
       "image": "/images/screenshot-2026-06-26-144734.png",
-      "badge": "New",
       "category": "Home Decor",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
     },
@@ -177,7 +175,7 @@
     {
       "material": "PETG",
       "title": "Alveola Lamp",
-      "price": 18000,
+      "price": 16000,
       "description": "Inspired by natural honeycomb geometry, the Alveola Lamp features a cellular hexagonal pattern that diffuses light into a warm, textured glow. Lightweight and durable, it brings organic modernism to dining areas, lounges, and creative workspaces.",
       "image": "/images/Alveola%20LAMP.png",
       "category": "Home Decor",
@@ -195,7 +193,7 @@
     {
       "material": "PETG",
       "title": "Cocoon Lamp",
-      "price": 18000,
+      "price": 22000,
       "description": "Wrapped in a gently textured 3D-printed shell, the Cocoon Lamp evokes the warmth of a natural cocoon. Its diffused, ambient lighting creates a calming atmosphere perfect for bedrooms, reading nooks, or meditation corners.",
       "image": "/images/Cocoon%20LAMP.png",
       "category": "Home Decor",
@@ -204,7 +202,7 @@
     {
       "material": "PETG",
       "title": "Handra Lamp",
-      "price": 18000,
+      "price": 20000,
       "description": "A sculptural 3D-printed pendant lamp with a bold ribbed handcrafted aesthetic. The Handra Lamp casts dramatic vertical shadows while providing warm ambient light, making it a standout piece for entryways, stairwells, or modern living rooms.",
       "image": "/images/HANDRA%20LAMP.png",
       "category": "Home Decor",

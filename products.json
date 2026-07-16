@@ -164,6 +164,51 @@
       "category": "Home Decor",
       "badge": "New",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Accordia Lamp",
+      "price": 18000,
+      "description": "A striking 3D-printed pendant lamp with an accordion-inspired folded design. Its rhythmic pleated structure creates a beautiful interplay of light and shadow, adding depth and elegance to any modern interior.",
+      "image": "/images/Accordia.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Alveola Lamp",
+      "price": 18000,
+      "description": "Inspired by natural honeycomb geometry, the Alveola Lamp features a cellular hexagonal pattern that diffuses light into a warm, textured glow. Lightweight and durable, it brings organic modernism to dining areas, lounges, and creative workspaces.",
+      "image": "/images/Alveola%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Chanterelle Lamp",
+      "price": 18000,
+      "description": "Named after the elegant wild mushroom, the Chanterelle Lamp features a fluted, trumpet-like silhouette that channels light downward in a soft, focused glow. A refined choice for kitchen islands, hallways, or boutique hospitality spaces.",
+      "image": "/images/Chanterelle%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Cocoon Lamp",
+      "price": 18000,
+      "description": "Wrapped in a gently textured 3D-printed shell, the Cocoon Lamp evokes the warmth of a natural cocoon. Its diffused, ambient lighting creates a calming atmosphere perfect for bedrooms, reading nooks, or meditation corners.",
+      "image": "/images/Cocoon%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Handra Lamp",
+      "price": 18000,
+      "description": "A sculptural 3D-printed pendant lamp with a bold ribbed handcrafted aesthetic. The Handra Lamp casts dramatic vertical shadows while providing warm ambient light, making it a standout piece for entryways, stairwells, or modern living rooms.",
+      "image": "/images/HANDRA%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
     }
   ]
 }

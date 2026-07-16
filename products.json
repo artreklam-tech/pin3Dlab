@@ -31,10 +31,10 @@
     },
     {
       "material": "PETG",
-      "description": "3D printed sculptural lampshade designed for IKEA HEMMA pendant light. Features smooth twisting rib geometry that diffuses light softly while creating a modern, elegant shadow pattern.",
-      "price": 18000,
-      "image": "/images/screenshot-2026-06-26-150457.png",
       "title": "Hemman Lampshade",
+      "price": 18000,
+      "description": "3D printed sculptural lampshade designed for IKEA HEMMA pendant light. Features smooth twisting rib geometry that diffuses light softly while creating a modern, elegant shadow pattern.",
+      "image": "/images/screenshot-2026-06-26-150457.png",
       "category": "Home Decor",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
     },
@@ -49,10 +49,10 @@
     },
     {
       "material": "PETG",
-      "image": "/images/image_2026-06-26_151939599.png",
       "title": "Wave Light Bedside Lamp – Background Light",
       "price": 18000,
       "description": "A wave-inspired bedside lamp, fully designed and 3D printed for a smooth organic form and lightweight structure. It produces a soft ambient background glow, creating a calm and modern atmosphere while showcasing precision-crafted layered design and sculptural elegance.",
+      "image": "/images/image_2026-06-26_151939599.png",
       "category": "Home Decor",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
     },
@@ -73,24 +73,97 @@
       "image": "/images/screenshot-2026-06-26-153130.png",
       "category": "Home Decor",
       "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
-    }
-{
-  "material": "PETG",
-  "title": "Korb Lampshade",
-  "price": 18000,
-  "description": "A beautifully woven 3D-printed pendant lampshade with an intricate basket-like texture. The Korb Lampshade casts a warm, patterned glow perfect for cozy interiors, dining areas, or boutique spaces. Lightweight and durable, crafted with precision for a unique handmade look.",
-  "image": "/images/Korblampe.png",
-  "category": "Home Decor",
-  "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
-}
+    },
     {
-  "material": "PETG",
-  "title": "Low Poly Polygon Lamp",
-  "price": 18000,
-  "description": "A striking 3D-printed pendant lampshade inspired by low-poly geometric design. Its faceted polygon structure creates a stunning interplay of light and shadow, adding a modern artistic touch to any room. Lightweight, durable, and perfect for contemporary interiors.",
-  "image": "/images/LOW%20BLOW%20Polygon%20LAMP.png",
-  "category": "Home Decor",
-  "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+      "material": "PETG",
+      "title": "Korb Lampshade",
+      "price": 18000,
+      "description": "A beautifully woven 3D-printed pendant lampshade with an intricate basket-like texture. The Korb Lampshade casts a warm, patterned glow perfect for cozy interiors, dining areas, or boutique spaces. Lightweight and durable, crafted with precision for a unique handmade look.",
+      "image": "/images/Korblampe.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Low Poly Polygon Lamp",
+      "price": 18000,
+      "description": "A striking 3D-printed pendant lampshade inspired by low-poly geometric design. Its faceted polygon structure creates a stunning interplay of light and shadow, adding a modern artistic touch to any room. Lightweight, durable, and perfect for contemporary interiors.",
+      "image": "/images/LOW%20BLOW%20Polygon%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Mark Lamp",
+      "price": 18000,
+      "description": "A sleek 3D-printed pendant lampshade with a modern sculptural silhouette. The Mark Lamp diffuses light softly, creating a warm ambiance perfect for dining rooms, hallways, or minimalist living spaces.",
+      "image": "/images/MARK%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "No Evil Trio",
+      "price": 15000,
+      "description": "A playful 3D-printed decor set inspired by the classic 'See No Evil, Hear No Evil, Speak No Evil' motif. Perfect as a shelf accent, desk companion, or conversation starter. Lightweight and finely detailed.",
+      "image": "/images/NO%20EVIL%20TRIO.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Ola Lamp",
+      "price": 18000,
+      "description": "Inspired by gentle ocean waves, the Ola Lamp features a flowing, undulating form that casts a soft rhythmic glow. A beautiful statement piece for coastal or contemporary interiors.",
+      "image": "/images/Ola%20Lamp.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Organic Flower Vase",
+      "price": 15000,
+      "description": "A nature-inspired 3D-printed vase with smooth organic curves and a sculptural form. Designed to hold fresh or dried flowers, it adds an elegant touch to any tabletop, shelf, or mantelpiece.",
+      "image": "/images/Organic.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Ripple Lamp",
+      "price": 18000,
+      "description": "A mesmerizing 3D-printed lampshade featuring concentric ripple textures that create a calming water-drop effect when illuminated. Ideal for bedrooms, lounges, or meditation spaces.",
+      "image": "/images/RIPPLE%20LAMP.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Sechseck Lamp",
+      "price": 18000,
+      "description": "German for 'hexagon', the Sechseck Lamp showcases a bold hexagonal geometric design. Its sharp angles and clean lines create dramatic light patterns, perfect for modern and industrial-style interiors.",
+      "image": "/images/Sechseck.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Semif Lamp",
+      "price": 18000,
+      "description": "A semi-spherical 3D-printed pendant lamp with a clean, minimalist profile. The Semif Lamp provides even, diffused lighting and complements both Scandinavian and modern interior styles.",
+      "image": "/images/Semif.png",
+      "category": "Home Decor",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    },
+    {
+      "material": "PETG",
+      "title": "Twisted Table Lamp",
+      "price": 22000,
+      "description": "A striking 3D-printed table lamp with a dynamic twisted spiral design. It serves as both a functional light source and an art piece, casting intricate shadows while adding sculptural elegance to desks, nightstands, or side tables.",
+      "image": "/images/TWISTED%20TABLE%20LAMOP%200021.png",
+      "category": "Home Decor",
+      "badge": "New",
+      "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+    }
+  ]
 }
-    
-    

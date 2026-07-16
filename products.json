@@ -83,4 +83,14 @@
   "category": "Home Decor",
   "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
 }
+    {
+  "material": "PETG",
+  "title": "Low Poly Polygon Lamp",
+  "price": 18000,
+  "description": "A striking 3D-printed pendant lampshade inspired by low-poly geometric design. Its faceted polygon structure creates a stunning interplay of light and shadow, adding a modern artistic touch to any room. Lightweight, durable, and perfect for contemporary interiors.",
+  "image": "/images/LOW%20BLOW%20Polygon%20LAMP.png",
+  "category": "Home Decor",
+  "colors": ["#FFFFFF", "#111111", "#C8A27A", "#E6E6E6", "#0A1F44"]
+}
+    
     
